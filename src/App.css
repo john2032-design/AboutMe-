@@ -1,0 +1,50 @@
+/* Device-specific optimizations */
+
+/* iPhone */
+.iphone-optimized {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.iphone-optimized main {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* iPad */
+.ipad-optimized main {
+  max-width: 100%;
+}
+
+/* Samsung / Android */
+.samsung-optimized {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Desktop */
+.desktop-optimized main {
+  scroll-behavior: smooth;
+}
+
+/* Smooth scrolling for all */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent horizontal overflow */
+body {
+  overflow-x: hidden;
+  background: var(--bg-primary);
+  transition: background-color 0.5s ease;
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
